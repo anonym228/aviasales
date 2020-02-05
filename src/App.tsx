@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styled, { createGlobalStyle } from "styled-components";
+import Filter from "./components/Filter";
+import MainContent from "./components/MainContent";
 
-const App = () => {
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: #F3F7FA;
+    width:960px;
+    margin:0 auto;
+    font-family: 'Open Sans', Arial, Tahoma;
+  }
+`;
+
+const Logo = styled.img`
+  width: 50px;
+  height: 50px;
+`;
+
+const Header = styled.div`
+  text-align: center;
+  margin: 30px;
+`;
+
+const Content = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <Header>
+        <Logo src="https://cdn.worldvectorlogo.com/logos/aviasales-4.svg" />
+      </Header>
+      <Content>
+        <Filter />
+        <MainContent />
+      </Content>
+    </>
   );
-}
+};
 
 export default App;
